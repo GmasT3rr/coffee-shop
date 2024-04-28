@@ -1,0 +1,13 @@
+@import '../../../styles.scss';
+.announcement-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--announcement-bg-color);
+    span{
+        color: var(--primary-text-color);
+        padding: 10px 30px;
+        font-size: 16px;
+        font-family: 'custom-font';
+    }
+}

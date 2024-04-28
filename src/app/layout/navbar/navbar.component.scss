@@ -3,21 +3,27 @@
 header {
   position: sticky;
   top: -1px;
-  background-color: var(--primary-bg-color);
   z-index: 1000;
-  left: 0 !important;
+  transition: background-color 500ms, border-bottom 500ms;
+  background-color: var(--primary-bg-color-translucent);
+  &.translucent {
+    background-color: var(--primary-bg-color);
+    border-bottom: 1px solid var(--primary-bg-color);
+  }
+  &:hover {
+    background-color: var(--primary-bg-color);
+    border-bottom: 1px solid var(--primary-bg-color);
+  }
 }
+
 .site-header {
-  font-family: 'custom-font';
-  font-size: 14px;
-  background-color: var(--primary-bg-color);
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.3 linear;
-  border-bottom: 1px solid var(--primary-bg-color);
+  position: relative;
   margin: 0 15px;
+  font-family: "custom-font";
+  font-size: 14px;
   .wrapper-left {
     display: flex;
     flex: 1 1 100%;
@@ -34,14 +40,32 @@ header {
           display: inline-block;
           .link {
             color: var(--primary-text-color);
-            display: block;
+            display: inline-block;
             text-decoration: none;
             letter-spacing: 0.5px;
             position: relative;
             padding: 15px;
+            transition: color 300ms;
             .link-wrapper {
+              position: relative;
               span {
                 padding-bottom: 4px;
+              }
+              &:hover {
+                color: var(--announcement-bg-color);
+                &::before {
+                  width: 100%;
+                }
+              }
+              &::before {
+                content: "";
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background-color: var(--announcement-bg-color);
+                transition: width 300ms;
               }
             }
           }
@@ -102,12 +126,19 @@ header {
             letter-spacing: 0.5px;
             position: relative;
             padding: 15px;
+            transition: color 300ms;
+            &:hover {
+              color: var(--announcement-bg-color);
+            }
             .link-wrapper {
+              display: flex;
+              align-items: center;
+              justify-content: center;
               fa-icon {
+                font-size: 18px;
               }
               span {
                 padding-left: 5px;
-                padding-bottom: 4px;
               }
             }
           }
