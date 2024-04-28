@@ -10,3 +10,10 @@ html, body{
   --primary-bg-color-lighten50: #a6978f;
   --primary-bg-color-opacity50: rgba(30, 26, 24, 0.5);
 }
+
+@font-face {
+  font-family: 'custom-font';
+  src: url('./assets/fonts/WorkSans-Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
