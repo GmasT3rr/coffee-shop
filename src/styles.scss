@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+html, body{
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --badge-font-color: #ece4d9;
+  --primary-text-color: #ece4d9;
+  --primary-bg-color: #1e1a18;
+  --primary-bg-color-lighten50: #a6978f;
+  --primary-bg-color-opacity50: rgba(30, 26, 24, 0.5);
+}
