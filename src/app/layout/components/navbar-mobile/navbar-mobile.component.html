@@ -1,0 +1,46 @@
+<header
+  directiveScrollOpacity
+  [ngStyle]="{ 'margin-bottom.px': -navbarHeight }"
+>
+  <!-- MOBILE -->
+  <nav class="site-header-mobile">
+    <div class="wrapper-padded">
+      <div class="table-grid-container">
+        <div class="grid-item-container left">
+          <div class="grid-item">
+            <button (click)="toggleSideMenu()">
+              <fa-icon [icon]="faBars"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <div class="grid-item-container center">
+            <div class="logo-wrapper">
+              <h1 class="site-title">
+                <a href="/" class="logo-image">
+                  <div class="responsive-image-wrapper">
+                    <img
+                      loading="lazy"
+                      src="https://portrait.coffee/cdn/shop/files/Primary_Logo_-_Cream_-_Transparent_550x.png?v=1653656599"
+                      alt=""
+                    />
+                  </div>
+                </a>
+                <a href="/" class="logo-overlay-image"></a>
+              </h1>
+          </div>
+        </div>
+        <div class="grid-item-container right">
+          <div class="grid-item">
+            <button (click)="toggleSearchSideMenu()">
+              <fa-icon [icon]="faSearch"></fa-icon>
+            </button>
+              <fa-icon [icon]="faShoppingCart"></fa-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<app-side-mobile-menu [showSideMenu]="showSideMenu" (toggleMenuRequest)="toggleSideMenu()"></app-side-mobile-menu>
+<app-side-mobile-search [showSideSearchMenu]="showSideSearchMenu" (toggleSearchMenuRequest)="toggleSearchSideMenu()"></app-side-mobile-search>

@@ -10,7 +10,7 @@ export class ScrollOpacityDirective {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const header = this.elementRef.nativeElement;
-
+    
     if (window.scrollY > 0) {
       this.renderer.addClass(header, 'translucent');
     } else {

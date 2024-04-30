@@ -1,0 +1,16 @@
+.side-menu-search {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 90%;
+    background-color: white; 
+    z-index: 9999; 
+    transition: transform 0.3s ease; 
+    transform: translateX(110%); 
+  }
+  
+  .show {
+    transform: translateX(0); 
+  }
+  

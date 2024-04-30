@@ -1,0 +1,17 @@
+@import '../../styles.scss';
+header {
+    position: sticky;
+    top: -1px;
+    z-index: 1000;
+    transition: background-color 500ms, border-bottom 500ms;
+    background-color: var(--primary-bg-color-translucent);
+    border-bottom: 1px solid var(--primary-bg-color-translucent);
+    &.translucent {
+      background-color: var(--primary-bg-color);
+      border-bottom: 1px solid var(--primary-bg-color);
+    }
+    &:hover {
+      background-color: var(--primary-bg-color);
+      border-bottom: 1px solid var(--primary-bg-color);
+    }
+  }

@@ -1,9 +1,9 @@
-@import "../../../styles.scss";
+@import '../../../../styles.scss';
 
 header {
   position: sticky;
   top: -1px;
-  z-index: 1000;
+  z-index: 10;
   transition: background-color 500ms, border-bottom 500ms;
   background-color: var(--primary-bg-color-translucent);
   border-bottom: 1px solid var(--primary-bg-color-translucent);
@@ -17,7 +17,7 @@ header {
   }
 }
 
-.site-header {
+.site-header-desktop {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -289,3 +289,4 @@ header {
     }
   }
 }
+

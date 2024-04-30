@@ -1,5 +1,9 @@
-<header directiveScrollOpacity [ngStyle]="{'margin-bottom.px': -navbarHeight}">
-  <div class="site-header">
+<header
+  directiveScrollOpacity
+  [ngStyle]="{ 'margin-bottom.px': -navbarHeight }"
+>
+  <!-- DESKTOP -->
+  <nav class="site-header-desktop">
     <div class="wrapper-left">
       <div class="top-links">
         <ul>
@@ -13,8 +17,7 @@
                       <span>Coffee </span>
                       <fa-icon [icon]="faChevronRight"></fa-icon>
                     </div>
-                    </a
-                  >
+                  </a>
                   <ul class="dropdown sub-dropdown">
                     <li>
                       <a class="sub-dropdown-link" href=""
@@ -36,9 +39,8 @@
                   <a class="dropdown-link" href=""
                     ><div class="dropdown-link-wrapper">
                       <span>Coffee Club</span>
-                      <fa-icon [icon]="faChevronRight"></fa-icon>
-                    </div></a
-                  >
+                      <fa-icon [icon]="faChevronRight"></fa-icon></div
+                  ></a>
                   <ul class="dropdown sub-dropdown">
                     <li>
                       <a class="sub-dropdown-link" href=""
@@ -60,9 +62,8 @@
                   <a class="dropdown-link" href=""
                     ><div class="dropdown-link-wrapper">
                       <span>Gifts </span>
-                      <fa-icon [icon]="faChevronRight"></fa-icon>
-                    </div></a
-                  >
+                      <fa-icon [icon]="faChevronRight"></fa-icon></div
+                  ></a>
                   <ul class="dropdown sub-dropdown">
                     <li>
                       <a class="sub-dropdown-link" href=""
@@ -84,9 +85,8 @@
                   <a class="dropdown-link" href=""
                     ><div class="dropdown-link-wrapper">
                       <span>Goods </span>
-                      <fa-icon [icon]="faChevronRight"></fa-icon>
-                    </div></a
-                  >
+                      <fa-icon [icon]="faChevronRight"></fa-icon></div
+                  ></a>
                   <ul class="dropdown sub-dropdown">
                     <li>
                       <a class="sub-dropdown-link" href=""
@@ -244,5 +244,6 @@
         </ul>
       </div>
     </div>
-  </div>
+  </nav>
+  
 </header>

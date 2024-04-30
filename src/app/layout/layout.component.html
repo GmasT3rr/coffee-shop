@@ -1,0 +1,14 @@
+<main>
+  
+  <app-top-announcement></app-top-announcement>
+  <ng-container *ngIf="isMobile; else desktopNavbar">
+    <app-navbar-mobile></app-navbar-mobile> 
+  </ng-container>
+  <ng-template #desktopNavbar>
+    <app-navbar></app-navbar>
+  </ng-template>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</main>

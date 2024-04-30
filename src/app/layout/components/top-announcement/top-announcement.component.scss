@@ -1,5 +1,6 @@
-@import '../../../styles.scss';
+@import '../../../../styles.scss';
 .announcement-wrapper{
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
