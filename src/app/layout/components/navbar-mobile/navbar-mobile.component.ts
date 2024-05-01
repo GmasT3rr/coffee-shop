@@ -32,7 +32,7 @@ export class NavbarMobileComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   faBars = faBars;
   navbarHeight: number = 0;
-  showSideMenu: boolean = false;
+  showSideMenu: boolean = true;
   showSideSearchMenu: boolean = false;
 
   constructor(private elementRef: ElementRef) {

@@ -12,6 +12,13 @@ export class SideMobileMenuComponent {
   @Output() toggleMenuRequest = new EventEmitter<void>();
   @Input()  showSideMenu:boolean = false
 
+  public toggleListButtonArray: boolean[] = [];
+  
+  toggleListButton(index: number): void {
+      this.toggleListButtonArray[index] = !this.toggleListButtonArray[index];
+  }
+
+
   toggleMenu() {
     this.showSideMenu = false
     this.toggleMenuRequest.emit();
