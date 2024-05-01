@@ -1,0 +1,52 @@
+<li class="side-menu-item-container">
+  <!-- Start of item -->
+  <div class="side-menu-item first">
+    <a href=""> {{ data.title }} </a>
+    <div class="list-toggle">
+      <button (click)="toggleListButton(elementNumber)">
+        <fa-icon [icon]="faChevronDown"
+        [class.active]="toggleListButtonArray[elementNumber]"
+        ></fa-icon>
+      </button>
+    </div>
+  </div>
+  <!-- End of item -->
+
+  <!-- Start of item list -->
+  <ng-container *ngFor="let item of data.dropdownItemList; let i = index">
+    <ul
+      class="side-menu-sublist"
+      [class.active]="toggleListButtonArray[elementNumber]"
+    >
+      <li class="side-menu-sublist-item">
+        <div class="side-menu-item">
+          <a href=""> {{ item.subTitle }} </a>
+          <!-- If item has sub-list -->
+          <div class="list-toggle" *ngIf="item.subList">
+            <button (click)="toggleListButton(elementNumber + i + 1)">
+                <fa-icon [icon]="faChevronDown"
+                [class.active]="toggleListButtonArray[elementNumber + i + 1]"
+                ></fa-icon>
+            </button>
+          </div>
+          <!-- ------ -->
+        </div>
+      </li>
+      <!-- Start of item sub-list -->
+      <ng-container *ngFor="let subItem of item.subList; let subI = index">
+        <ul
+          class="side-menu-sub-sublist"
+          [class.active]="toggleListButtonArray[elementNumber + i + 1]"
+        >
+          <li class="side-menu-sub-sublist-item">
+            <div class="side-menu-item">
+              <a href="">{{ subItem.subListTitle }} </a>
+            </div>
+          </li>
+        </ul>
+      </ng-container>
+      <!-- End of item sub-list -->
+    </ul>
+  </ng-container>
+  <!-- End of item list -->
+</li>

@@ -4,83 +4,14 @@
   </div>
 
   <ul class="side-menu-main-list">
-    <!-- Item-with-Sub-menu -->
-    <li class="side-menu-item-container">
-      <div class="side-menu-item">
-        <a href=""> Shop </a>
-        <div class="list-toggle">
-          <button (click)="toggleListButton(0)">show</button>
-        </div>
-      </div>
-      <!-- Sub-menu -->
-      <ul class="side-menu-sublist" [class.active]="toggleListButtonArray[0]">
-        <li class="side-menu-sublist-item">
-          <div class="side-menu-item">
-            <a href=""> Sublist item </a>
-            <div class="list-toggle">
-              <button (click)="toggleListButton(1)">show</button>
-            </div>
-          </div>
-        </li>
-        <!-- Sub-sub-menu -->
-        <ul
-          class="side-menu-sub-sublist"
-          [class.active]="toggleListButtonArray[1]"
-        >
-          <li class="side-menu-sub-sublist-item">
-            <div class="side-menu-item">
-              <a href=""> Sub Sublist item </a>
-            </div>
-          </li>
-          <li class="side-menu-sub-sublist-item">
-            <div class="side-menu-item">
-              <a href=""> Sub Sublist item </a>
-            </div>
-          </li>
-        </ul>
-      </ul>
-    </li>
-    <!-- End-of-Item-with-Sub-menu -->
-    <!-- Item-with-Sub-menu -->
-    <li class="side-menu-item-container">
-        <div class="side-menu-item">
-          <a href=""> Shop </a>
-          <div class="list-toggle">
-            <button (click)="toggleListButton(2)">show</button>
-          </div>
-        </div>
-        <!-- Sub-menu -->
-        <ul class="side-menu-sublist" [class.active]="toggleListButtonArray[2]">
-          <li class="side-menu-sublist-item">
-            <div class="side-menu-item">
-              <a href=""> Sublist item </a>
-              <div class="list-toggle">
-                <button (click)="toggleListButton(3)">show</button>
-              </div>
-            </div>
-          </li>
-          <!-- Sub-sub-menu -->
-          <ul
-            class="side-menu-sub-sublist"
-            [class.active]="toggleListButtonArray[3]"
-          >
-            <li class="side-menu-sub-sublist-item">
-              <div class="side-menu-item">
-                <a href=""> Sub Sublist item </a>
-              </div>
-            </li>
-            <li class="side-menu-sub-sublist-item">
-              <div class="side-menu-item">
-                <a href=""> Sub Sublist item </a>
-              </div>
-            </li>
-          </ul>
-        </ul>
-      </li>
-      <!-- End-of-Item-with-Sub-menu -->
-    <li class="side-menu-item"></li>
-    <li class="side-menu-item"></li>
-    <li class="side-menu-item"></li>
+    <!-- Start of item list component  -->
+    <ng-container *ngFor="let item of itemList; let i = index">
+      <app-list-item [data]="item" [elementNumber]="i"></app-list-item>
+    </ng-container>
+    <!-- End of item list component  -->
   </ul>
-  <div class="side-menu-footer"></div>
+  <div class="side-menu-footer">
+    <button (click)="toggleMenu()">Cerrar menú</button>
+
+  </div>
 </div>

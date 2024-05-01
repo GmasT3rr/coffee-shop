@@ -1,0 +1,81 @@
+.side-menu-item-container {
+  height: auto;
+  overflow: hidden;
+  border-bottom: solid 1px rgb(166, 151, 143, 0.25);
+  margin-bottom: 1px;
+  .side-menu-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+    list-style: none;
+    a {
+      color: var(--primary-bg-color);
+      text-decoration: none;
+      font-family: "custom-font" !important;
+      font-size: 18px;
+    }
+    .list-toggle {
+      button {
+        padding: 0;
+        border: none;
+        background-color: inherit;
+      }
+    }
+    &.first {
+      position: relative;
+      background-color: var(--primary-text-color);
+      z-index: 3;
+      padding: 20px 0;
+    }
+  }
+  .side-menu-sublist {
+    list-style: none;
+    padding-left: 10px;
+    z-index: 1;
+    .side-menu-sublist-item {
+      margin: 0;
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+  .side-menu-sub-sublist {
+    overflow: hidden;
+    list-style: none;
+    z-index: 99999;
+    padding-left: 20px;
+
+    .side-menu-sub-sublist-item {
+
+      .side-menu-item {
+        a {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+fa-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 500ms;
+  &.active {
+    transform: rotate(180deg);
+  }
+}
+
+.side-menu-sublist,
+.side-menu-sub-sublist {
+  max-height: 0;
+  transition: max-height 300ms ease-out;
+
+}
+
+.side-menu-sublist.active,
+.side-menu-sub-sublist.active {
+  max-height: 1000px;
+  transition: max-height 500ms ease-in;
+}
