@@ -1,6 +1,9 @@
 <div class="side-menu" [ngClass]="{ show: showSideMenu }">
   <div class="side-menu-logo">
-    <button (click)="toggleMenu()">Cerrar menú</button>
+    <button (click)="toggleMenu()">
+      <fa-icon [icon]="fa"></fa-icon>
+
+    </button>
   </div>
 
   <ul class="side-menu-main-list">

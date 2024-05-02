@@ -1,6 +1,6 @@
 @import "../../../../styles.scss";
 header {
-  position: sticky;
+  position: fixed;
   top: -1px;
   z-index: 10;
   transition: background-color 500ms, border-bottom 500ms;

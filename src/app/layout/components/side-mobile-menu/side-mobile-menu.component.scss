@@ -8,28 +8,57 @@
   z-index: 9999;
   transition: transform 0.3s ease;
   transform: translateX(-110%);
-  display: flex;
-  flex-wrap: wrap;
+
   overflow: auto;
   .side-menu-logo {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    position: sticky;
+    justify-content: flex-end;
+    z-index: 5;
     width: 100%;
+    background-color: transparent;
     height: 6%;
-    background-color: green;
+    top: 0;
+    button {
+      background-color: inherit;
+      border: none;
+      padding: 0;
+      fa-icon {
+        padding: 0 15px;
+        font-size: 35px;
+      }
+    }
   }
   .side-menu-main-list {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    position: relative;
     width: 100%;
+    min-height: 88%;
     list-style: none;
-    padding: 0 10px;
+    padding: 0;
     margin: 0;
-
-    height: 88%;
+    margin-bottom: auto;
   }
   .side-menu-footer {
+    z-index: 5;
     width: 100%;
-    background-color: green;
-    height: 6%;
+    background-color: inherit;
+    height: calc(6% - 2px);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    position: sticky;
+    bottom: 0;
+    border-top: solid 2px rgb(166, 151, 143, 1);
+    button{
+      background-color: inherit;
+      border: none;
+      padding: 0;
+    }
   }
 }
 

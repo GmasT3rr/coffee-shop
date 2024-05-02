@@ -1,9 +1,10 @@
 .side-menu-item-container {
+  padding: 0 20px;
   height: auto;
   overflow: hidden;
-  border-bottom: solid 1px rgb(166, 151, 143, 0.25);
-  margin-bottom: 1px;
   .side-menu-item {
+
+
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -27,6 +28,8 @@
       background-color: var(--primary-text-color);
       z-index: 3;
       padding: 20px 0;
+      border-bottom: solid 1px rgb(166, 151, 143, 0.25);
+      margin-bottom: 1px;
     }
   }
   .side-menu-sublist {
@@ -47,7 +50,6 @@
     padding-left: 20px;
 
     .side-menu-sub-sublist-item {
-
       .side-menu-item {
         a {
           font-size: 16px;
@@ -71,7 +73,6 @@ fa-icon {
 .side-menu-sub-sublist {
   max-height: 0;
   transition: max-height 300ms ease-out;
-
 }
 
 .side-menu-sublist.active,
