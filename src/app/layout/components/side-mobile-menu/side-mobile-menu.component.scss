@@ -13,7 +13,6 @@
   .side-menu-logo {
     display: flex;
     flex-wrap: wrap;
-    overflow: auto;
     position: sticky;
     justify-content: flex-end;
     z-index: 5;
@@ -28,6 +27,7 @@
       fa-icon {
         padding: 0 15px;
         font-size: 35px;
+        cursor: pointer;
       }
     }
   }
@@ -49,15 +49,38 @@
     background-color: inherit;
     height: calc(6% - 2px);
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
     overflow: auto;
     position: sticky;
     bottom: 0;
     border-top: solid 2px rgb(166, 151, 143, 1);
-    button{
-      background-color: inherit;
-      border: none;
-      padding: 0;
+    a {
+      text-decoration: none;
+      font-family: "custom-font";
+      font-size: 14px;
+      padding-left: 20px;
+      cursor: pointer;
+      color: var(--primary-bg-color);
+    font-weight: bold;
+    }
+    .icons-wrapper {
+      margin-left: auto;
+      padding-right: 20px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      a {
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--primary-bg-color);
+        fa-icon {
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

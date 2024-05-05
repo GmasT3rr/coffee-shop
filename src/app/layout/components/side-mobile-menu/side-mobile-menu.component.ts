@@ -5,6 +5,7 @@ import { SideMenuItem } from './interfaces/side-menu-list-item';
 import { ItemsService } from './services/items.service';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-side-mobile-menu',
@@ -17,8 +18,11 @@ export class SideMobileMenuComponent implements OnInit {
   @Output() toggleMenuRequest = new EventEmitter<void>();
   @Input() showSideMenu: boolean = false;
 
-  fa=faXmark
-
+  faXmark=faXmark
+  faFacebook=faFacebook
+  faTwitter=faTwitter
+  faInstagram=faInstagram
+  faYoutube=faYoutube
   public toggleListButtonArray: boolean[] = [];
   public itemList: SideMenuItem[] = [];
 

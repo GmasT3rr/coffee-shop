@@ -1,8 +1,7 @@
 <div class="side-menu" [ngClass]="{ show: showSideMenu }">
   <div class="side-menu-logo">
     <button (click)="toggleMenu()">
-      <fa-icon [icon]="fa"></fa-icon>
-
+      <fa-icon [icon]="faXmark"></fa-icon>
     </button>
   </div>
 
@@ -14,7 +13,20 @@
     <!-- End of item list component  -->
   </ul>
   <div class="side-menu-footer">
-    <button (click)="toggleMenu()">Cerrar menú</button>
-
+    <a href=""> Log in </a>
+    <div class="icons-wrapper">
+      <a href="">
+        <fa-icon [icon]="faFacebook"></fa-icon>
+      </a>
+      <a href="">
+        <fa-icon [icon]="faTwitter"></fa-icon>
+      </a>
+      <a href="">
+        <fa-icon [icon]="faInstagram"></fa-icon>
+      </a>
+      <a href="">
+        <fa-icon [icon]="faYoutube"></fa-icon>
+      </a>
+    </div>
   </div>
 </div>
