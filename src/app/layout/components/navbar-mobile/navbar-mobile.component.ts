@@ -32,8 +32,8 @@ export class NavbarMobileComponent implements OnInit {
   faShoppingCart = faShoppingCart;
   faBars = faBars;
   navbarHeight: number = 0;
-  showSideMenu: boolean = true;
-  showSideSearchMenu: boolean = false;
+  showSideMenu: boolean = false;
+  showSideSearchMenu: boolean = true;
 
   constructor(private elementRef: ElementRef) {
     const navbarHeight$ = fromEvent(window, 'resize').pipe(
