@@ -9,6 +9,7 @@
   transition: transform 0.3s ease;
   transform: translateX(110%);
   opacity: 1 !important;
+  overflow: auto;
   &.mobile {
     width: 80%;
   }
@@ -135,16 +136,16 @@
         color: var(--link-color);
         font-weight: bold;
         font-size: 16px;
-
+        cursor: pointer;
         .image-wrapper {
           display: flex;
           align-items: center;
           justify-content: center;
-          background-color: green;
 
           img {
-            width: 100px;
+            width: 120px;
             height: 100px;
+            object-fit: cover;
           }
         }
         .description {

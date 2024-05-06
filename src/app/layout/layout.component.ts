@@ -41,12 +41,9 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void {
     this._sideMenuService.State.subscribe((state: boolean) => {
-      console.log(state);
       this.sideMenuState = state;
       if (state) {
-        this.render.addClass(this.document.body, 'sideMenuOpen');
-        console.log(this.document.body);
-        
+        this.render.addClass(this.document.body, 'sideMenuOpen');        
       } else {
         this.render.removeClass(this.document.body, 'sideMenuOpen');
       }
