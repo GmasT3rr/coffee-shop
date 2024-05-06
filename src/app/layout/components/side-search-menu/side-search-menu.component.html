@@ -30,8 +30,12 @@
         <fa-icon [icon]="faCircleNotch"></fa-icon>
       </div>
     </ng-container>
-    <ng-container *ngIf="nothingFound">
-      No hay resultados para su busqueda
+    <ng-container *ngIf="nothingFound && !isSearching && searchControl.value !== undefined">
+      <div class="nothing-found">
+        <span>
+          Your search for "{{ searchControl.value }}" did not yield any results.
+        </span>
+      </div>
     </ng-container>
 
     <ng-container *ngFor="let item of $filteredPageInfo | async">
