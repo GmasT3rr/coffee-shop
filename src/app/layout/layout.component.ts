@@ -1,23 +1,56 @@
-import { Component, HostListener } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  Inject,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterOutlet } from '@angular/router';
 import { TopAnnouncementComponent } from './components/top-announcement/top-announcement.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import { NavbarMobileComponent } from './components/navbar-mobile/navbar-mobile.component';
+import { SideMenuService } from './services/side-menu.service';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [CommonModule,NavbarComponent,FooterComponent, RouterOutlet, TopAnnouncementComponent, NavbarMobileComponent],
+  imports: [
+    CommonModule,
+    NavbarComponent,
+    FooterComponent,
+    RouterOutlet,
+    TopAnnouncementComponent,
+    NavbarMobileComponent,
+  ],
   templateUrl: './layout.component.html',
-  styleUrl: './layout.component.scss'
+  styleUrl: './layout.component.scss',
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
   isMobile: boolean = false;
+  sideMenuState: boolean = false;
 
-  constructor() { 
+  constructor(
+    private render: Renderer2,
+    private _sideMenuService: SideMenuService,
+    @Inject(DOCUMENT) private document: Document
+  ) {
     this.checkIfMobile();
+  }
+
+  ngOnInit(): void {
+    this._sideMenuService.State.subscribe((state: boolean) => {
+      console.log(state);
+      this.sideMenuState = state;
+      if (state) {
+        this.render.addClass(this.document.body, 'sideMenuOpen');
+        console.log(this.document.body);
+        
+      } else {
+        this.render.removeClass(this.document.body, 'sideMenuOpen');
+      }
+    });
   }
 
   @HostListener('window:resize', ['$event'])

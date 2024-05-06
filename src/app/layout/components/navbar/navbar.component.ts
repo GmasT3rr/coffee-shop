@@ -6,11 +6,13 @@ import { ScrollOpacityDirective } from '../../directives/scroll-opacity.directiv
 import { DropdownHoverDirective } from '../../directives/dropdown-hover.directive';
 import { CommonModule } from '@angular/common';
 import { fromEvent, startWith, map } from 'rxjs';
+import { SideSearchMenuComponent } from '../side-search-menu/side-search-menu.component';
+import { SideMenuService } from '../../services/side-menu.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule,FontAwesomeModule, ScrollOpacityDirective, DropdownHoverDirective],
+  imports: [CommonModule,FontAwesomeModule, ScrollOpacityDirective, DropdownHoverDirective, SideSearchMenuComponent],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
@@ -22,7 +24,9 @@ export class NavbarComponent {
   faBars=faBars
   navbarHeight: number = 0;
 
-  constructor(private elementRef: ElementRef) {
+  showSideSearchMenu: boolean = false;
+
+  constructor(private elementRef: ElementRef, private _sideMenuService:SideMenuService) {
     const navbarHeight$ = fromEvent(window, 'resize').pipe(
       startWith(null),
       map(() => this.elementRef.nativeElement.offsetHeight)
@@ -38,4 +42,8 @@ export class NavbarComponent {
     this.navbarHeight = this.elementRef.nativeElement.offsetHeight;
   }
 
+  toggleSearchSideMenu() {
+    this._sideMenuService.setOpen()
+    this.showSideSearchMenu = !this.showSideSearchMenu;
+  }
 }

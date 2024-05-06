@@ -46,6 +46,7 @@ header {
             letter-spacing: 0.5px;
             position: relative;
             padding: 15px;
+            cursor: pointer ;
             &:hover {
               .dropdown {
                 visibility: visible;
@@ -192,6 +193,7 @@ header {
             position: relative;
             padding: 15px;
             transition: color 300ms;
+            cursor: pointer;
             &:hover {
               color: var(--announcement-bg-color);
             }

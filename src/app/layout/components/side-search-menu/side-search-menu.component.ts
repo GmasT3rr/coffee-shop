@@ -1,33 +1,26 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
-  faCircleNotch,
-  faSearch,
   faXmark,
+  faSearch,
+  faCircleNotch,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  Observable,
-  debounceTime,
-  filter,
-  map,
-  of,
-  switchMap,
-  take,
-  tap,
-} from 'rxjs';
+import { Observable, of, debounceTime, switchMap, map, tap } from 'rxjs';
+import { SideMenuService } from '../../services/side-menu.service';
 
 @Component({
-  selector: 'app-side-mobile-search',
+  selector: 'app-side-search-menu',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, ReactiveFormsModule],
-  templateUrl: './side-mobile-search.component.html',
-  styleUrl: './side-mobile-search.component.scss',
+  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
+  templateUrl: './side-search-menu.component.html',
+  styleUrl: './side-search-menu.component.scss',
 })
-export class SideMobileSearchComponent implements OnInit {
+export class SideSearchMenuComponent {
   @Output() toggleSearchMenuRequest = new EventEmitter<void>();
   @Input() showSideSearchMenu: boolean = false;
+  @Input() isMobile: boolean = false;
   faXmark = faXmark;
   faSearch = faSearch;
   faCircleNotch = faCircleNotch;
@@ -38,6 +31,8 @@ export class SideMobileSearchComponent implements OnInit {
   public $filter: Observable<any> = new Observable();
   public isSearching: boolean = false;
   public nothingFound: boolean = false;
+
+  constructor(private _sideMenuService: SideMenuService) {}
 
   ngOnInit(): void {
     this.$originalPageInfo = this.getPageInfoForSearching();
@@ -53,6 +48,10 @@ export class SideMobileSearchComponent implements OnInit {
     this.search().subscribe();
   }
 
+  setSideMenuState() {
+    this._sideMenuService.setClose();
+  }
+
   getPageInfoForSearching() {
     return of(this.pageInfo);
   }
@@ -60,11 +59,12 @@ export class SideMobileSearchComponent implements OnInit {
   toggleSearchMenu() {
     this.showSideSearchMenu = false;
     this.toggleSearchMenuRequest.emit();
+    this.setSideMenuState();
   }
 
   search(): Observable<any> {
     return (this.$filteredPageInfo = this.$filter.pipe(
-      debounceTime(500),
+      debounceTime(300),
       switchMap((filterValue: string) => {
         return this.$originalPageInfo.pipe(
           map((objects: any) => {

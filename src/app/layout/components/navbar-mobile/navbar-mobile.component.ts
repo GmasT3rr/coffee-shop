@@ -11,7 +11,8 @@ import {
 import { fromEvent, startWith, map } from 'rxjs';
 import { SideMobileMenuComponent } from '../side-mobile-menu/side-mobile-menu.component';
 
-import { SideMobileSearchComponent } from '../side-mobile-search/side-mobile-search.component';
+import { SideSearchMenuComponent } from '../side-search-menu/side-search-menu.component';
+import { SideMenuService } from '../../services/side-menu.service';
 
 @Component({
   selector: 'app-navbar-mobile',
@@ -22,7 +23,7 @@ import { SideMobileSearchComponent } from '../side-mobile-search/side-mobile-sea
     ScrollOpacityDirective,
     DropdownHoverDirective,
     SideMobileMenuComponent,
-    SideMobileSearchComponent,
+    SideSearchMenuComponent,
   ],
   templateUrl: './navbar-mobile.component.html',
   styleUrl: './navbar-mobile.component.scss',
@@ -33,9 +34,12 @@ export class NavbarMobileComponent implements OnInit {
   faBars = faBars;
   navbarHeight: number = 0;
   showSideMenu: boolean = false;
-  showSideSearchMenu: boolean = true;
+  showSideSearchMenu: boolean = false;
 
-  constructor(private elementRef: ElementRef) {
+  constructor(
+    private elementRef: ElementRef,
+    private _sideMenuService: SideMenuService
+  ) {
     const navbarHeight$ = fromEvent(window, 'resize').pipe(
       startWith(null),
       map(() => this.elementRef.nativeElement.offsetHeight)
@@ -52,9 +56,11 @@ export class NavbarMobileComponent implements OnInit {
   }
 
   toggleSideMenu() {
+    this._sideMenuService.setOpen();
     this.showSideMenu = !this.showSideMenu;
   }
   toggleSearchSideMenu() {
+    this._sideMenuService.setOpen();
     this.showSideSearchMenu = !this.showSideSearchMenu;
   }
 }

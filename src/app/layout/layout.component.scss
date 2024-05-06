@@ -1,18 +1,35 @@
-@import '../../styles.scss';
+@import "../../styles.scss";
 header {
-    position: sticky;
-    top: -1px;
-    z-index: 1000;
-    transition: background-color 500ms, border-bottom 500ms;
-    background-color: var(--primary-bg-color-translucent);
-    border-bottom: 1px solid var(--primary-bg-color-translucent);
-    &.translucent {
-      background-color: var(--primary-bg-color);
-      border-bottom: 1px solid var(--primary-bg-color);
-    }
-    &:hover {
-      background-color: var(--primary-bg-color);
-      border-bottom: 1px solid var(--primary-bg-color);
+  position: sticky;
+  top: -1px;
+  z-index: 1000;
+  transition: background-color 500ms, border-bottom 500ms;
+  background-color: var(--primary-bg-color-translucent);
+  border-bottom: 1px solid var(--primary-bg-color-translucent);
+  &.translucent {
+    background-color: var(--primary-bg-color);
+    border-bottom: 1px solid var(--primary-bg-color);
+  }
+  &:hover {
+    background-color: var(--primary-bg-color);
+    border-bottom: 1px solid var(--primary-bg-color);
+  }
+}
+.sideMenuOpen :not(app-navbar):not(app-navbar-mobile) {
+  overflow: hidden;
+  opacity: 0.5;
+  transition: opacity 400ms linear 0s;
+  background-color: var(--overlay-color);
+}
+.sideMenuOpen{
+  app-navbar::ng-deep {
+    header {
+      pointer-events: none !important;
     }
   }
-
+  app-navbar-mobile::ng-deep {
+    header {
+      pointer-events: none !important;
+    }
+  }
+}

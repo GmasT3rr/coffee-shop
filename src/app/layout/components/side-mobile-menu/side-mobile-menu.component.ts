@@ -6,6 +6,7 @@ import { ItemsService } from './services/items.service';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFacebook, faInstagram, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { SideMenuService } from '../../services/side-menu.service';
 
 @Component({
   selector: 'app-side-mobile-menu',
@@ -26,7 +27,7 @@ export class SideMobileMenuComponent implements OnInit {
   public toggleListButtonArray: boolean[] = [];
   public itemList: SideMenuItem[] = [];
 
-  constructor(private _itemService: ItemsService) {}
+  constructor(private _itemService: ItemsService, private _sideMenuService:SideMenuService) {}
 
   ngOnInit(): void {
     this.itemList = this._itemService.getItemList();
@@ -35,5 +36,11 @@ export class SideMobileMenuComponent implements OnInit {
   toggleMenu() {
     this.showSideMenu = false;
     this.toggleMenuRequest.emit();
+    this.setSideMenuState()
   }
+
+  setSideMenuState() {
+    this._sideMenuService.setClose();
+  }
+
 }

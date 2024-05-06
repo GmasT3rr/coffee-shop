@@ -221,9 +221,13 @@
       <div class="top-links">
         <ul>
           <li>
-            <a class="link" href=""
+            <a class="link"  (click)="toggleSearchSideMenu()"
               ><div class="link-wrapper">
-                <fa-icon [icon]="faSearch"></fa-icon> <span>Search</span>
+                <fa-icon
+                  
+                  [icon]="faSearch"
+                ></fa-icon>
+                <span>Search</span>
               </div></a
             >
           </li>
@@ -245,5 +249,10 @@
       </div>
     </div>
   </nav>
-  
 </header>
+
+
+<app-side-search-menu
+  [showSideSearchMenu]="showSideSearchMenu"
+  (toggleSearchMenuRequest)="toggleSearchSideMenu()"
+></app-side-search-menu>

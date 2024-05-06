@@ -43,4 +43,10 @@
 </header>
 
 <app-side-mobile-menu [showSideMenu]="showSideMenu" (toggleMenuRequest)="toggleSideMenu()"></app-side-mobile-menu>
-<app-side-mobile-search [showSideSearchMenu]="showSideSearchMenu" (toggleSearchMenuRequest)="toggleSearchSideMenu()"></app-side-mobile-search>
+<!-- <app-side-mobile-search [showSideSearchMenu]="showSideSearchMenu" (toggleSearchMenuRequest)="toggleSearchSideMenu()"></app-side-mobile-search> -->
+
+<app-side-search-menu
+  [showSideSearchMenu]="showSideSearchMenu"
+  (toggleSearchMenuRequest)="toggleSearchSideMenu()"
+  [isMobile]="true"
+></app-side-search-menu>
