@@ -10,14 +10,19 @@ import {
 import { Observable, of, debounceTime, switchMap, map, tap } from 'rxjs';
 import { SideMenuService } from '../../services/side-menu.service';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
-import { MenuItem} from './interfaces/menu-item';
+import { MenuItem } from './interfaces/menu-item';
 import { MenuSubItem } from './interfaces/menu-sub-item';
 import { MenuItemService } from './services/menu-item.service';
 
 @Component({
   selector: 'app-side-search-menu',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule, MenuItemComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    MenuItemComponent,
+  ],
   templateUrl: './side-search-menu.component.html',
   styleUrl: './side-search-menu.component.scss',
 })
@@ -36,7 +41,10 @@ export class SideSearchMenuComponent {
   public isSearching: boolean = false;
   public nothingFound: boolean = false;
 
-  constructor(private _sideMenuService: SideMenuService, private _menuItem:MenuItemService) {}
+  constructor(
+    private _sideMenuService: SideMenuService,
+    private _menuItem: MenuItemService
+  ) {}
 
   ngOnInit(): void {
     this.$originalPageInfo = this.getPageInfoForSearching();
@@ -93,7 +101,9 @@ export class SideSearchMenuComponent {
           this.searchControl.value !== undefined &&
           this.searchControl.value?.trim() !== ''
         ) {
-          const allEmpty = items.every((item: MenuItem) => item.items.length === 0);
+          const allEmpty = items.every(
+            (item: MenuItem) => item.items.length === 0
+          );
           this.nothingFound = allEmpty;
         } else {
           this.nothingFound = false;
@@ -106,6 +116,4 @@ export class SideSearchMenuComponent {
     this.searchControl.setValue(undefined);
     this.search();
   }
-
-  
 }

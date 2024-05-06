@@ -1,86 +1,41 @@
-<div class="side-menu-search" [ngClass]="{ show: showSideSearchMenu, mobile: isMobile }" >
-    <div class="side-menu-logo">
-      <span>Search</span>
-      <button (click)="toggleSearchMenu()">
-        <fa-icon [icon]="faXmark"></fa-icon>
-      </button>
-    </div>
-  
-    <div class="side-search-wrapper">
-      <div class="search-drawer">
-        <fa-icon class="search" [icon]="faSearch"></fa-icon>
-        <input
-        placeholder="Search our store"
-          (keypress)="search()"
-          class="search-input"
-          type="text"
-          [formControl]="searchControl"
-        />
-        <fa-icon
-          (click)="clearSearch()"
-          class="delete"
-          [icon]="faXmark"
-        ></fa-icon>
-      </div>
-      <ng-container *ngIf="isSearching">
-        <div class="loading-items-wrapper">
-          <fa-icon [icon]="faCircleNotch"></fa-icon>
-        </div>
-      </ng-container>
-      <ng-container *ngIf="nothingFound">
-          No hay resultados para su busqueda
-      </ng-container>
-      
-      <ng-container *ngFor="let item of $filteredPageInfo | async">
-        <ng-container *ngIf="item.items.length > 0">
-          <div class="items-wrapper">
-            <ng-container *ngIf="!item.hasImage; else ItemWithImage">
-              <div class="item-title">
-                <h2>{{ item.name }}</h2>
-              </div>
-              <ng-container *ngFor="let subItem of item.items">
-                <a class="sub-item">
-                  {{ subItem.itemName | titlecase}}
-                </a>
-              </ng-container>
-            </ng-container>
-          </div>
-          <ng-template #ItemWithImage>
-            <div class="item-title">
-              <h2>{{ item.name }}</h2>
-            </div>
-            <ng-container *ngFor="let subItem of item.items">
-              <a class="sub-item">
-                <div class="image-wrapper">
-                  <img [src]="'assets/images/'+subItem.imgUrl"  alt="" />
-                  <!-- <img src="../../../../assets/images/" alt=""> -->
-                </div>
-                <div class="description">
-                  <span class="name">{{ subItem.itemName | titlecase }}</span>
-                  <span class="price" *ngIf="subItem?.price">${{ subItem?.price }}</span>
-                </div>
-              </a>
-            </ng-container>
-          </ng-template>
-        </ng-container>
-      </ng-container>
-    </div>
-    <!-- <div class="side-menu-footer">
-        <a href=""> Log in </a>
-        <div class="icons-wrapper">
-          <a href="">
-            <fa-icon [icon]="faFacebook"></fa-icon>
-          </a>
-          <a href="">
-            <fa-icon [icon]="faTwitter"></fa-icon>
-          </a>
-          <a href="">
-            <fa-icon [icon]="faInstagram"></fa-icon>
-          </a>
-          <a href="">
-            <fa-icon [icon]="faYoutube"></fa-icon>
-          </a>
-        </div>
-      </div> -->
+<div
+  class="side-menu-search"
+  [ngClass]="{ show: showSideSearchMenu, mobile: isMobile }"
+>
+  <div class="side-menu-logo">
+    <span>Search</span>
+    <button (click)="toggleSearchMenu()">
+      <fa-icon [icon]="faXmark"></fa-icon>
+    </button>
   </div>
-  
+
+  <div class="side-search-wrapper">
+    <div class="search-drawer">
+      <fa-icon class="search" [icon]="faSearch"></fa-icon>
+      <input
+        placeholder="Search our store"
+        (keypress)="search()"
+        class="search-input"
+        type="text"
+        [formControl]="searchControl"
+      />
+      <fa-icon
+        (click)="clearSearch()"
+        class="delete"
+        [icon]="faXmark"
+      ></fa-icon>
+    </div>
+    <ng-container *ngIf="isSearching">
+      <div class="loading-items-wrapper">
+        <fa-icon [icon]="faCircleNotch"></fa-icon>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="nothingFound">
+      No hay resultados para su busqueda
+    </ng-container>
+
+    <ng-container *ngFor="let item of $filteredPageInfo | async">
+      <app-menu-item [item]="item"></app-menu-item>
+    </ng-container>
+  </div>
+</div>
