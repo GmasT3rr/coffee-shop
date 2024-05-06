@@ -1,0 +1,11 @@
+<li *ngIf="section">
+  <a class="link" href=""
+    ><div class="link-wrapper">
+      <span>{{ section.name }}</span>
+    </div>
+    <ul class="dropdown dropdown-w-icons" directiveDropdownHover>
+      <ng-container *ngFor="let links of section.links">
+        <app-nav-section-sub-item [links]="links"></app-nav-section-sub-item>
+      </ng-container></ul
+  ></a>
+</li>

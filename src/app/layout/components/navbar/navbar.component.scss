@@ -1,4 +1,4 @@
-@import '../../../../styles.scss';
+@import "../../../../styles.scss";
 
 header {
   position: sticky;
@@ -37,105 +37,6 @@ header {
         display: inline-flex;
         list-style: none;
         text-decoration: none;
-        li {
-          display: inline-block;
-          .link {
-            color: var(--primary-text-color);
-            display: inline-block;
-            text-decoration: none;
-            letter-spacing: 0.5px;
-            position: relative;
-            padding: 15px;
-            cursor: pointer ;
-            &:hover {
-              .dropdown {
-                visibility: visible;
-                opacity: 1;
-              }
-              .link-wrapper {
-                span {
-                  color: var(--announcement-bg-color);
-                  &::before {
-                    width: 100%;
-                  }
-                }
-              }
-            }
-
-            .dropdown {
-              visibility: hidden;
-              display: grid;
-              opacity: 0;
-              margin-top: 15px;
-              position: absolute;
-              grid-template-columns: 1fr;
-              padding: 20px;
-              min-width: 150px;
-              max-width: 300px;
-              background-color: var(--primary-bg-color);
-              transition: opacity 300ms, visibility 300ms;
-              cursor: default;
-              &:hover {
-                visibility: visible;
-                opacity: 1;
-              }
-              li {
-                padding: 7px 0;
-                // width: fit-content;
-                width: 100%;
-
-                .dropdown-link {
-                  color: var(--primary-text-color);
-                  text-decoration: none;
-                  letter-spacing: 0.5px;
-
-                  .dropdown-link-wrapper {
-                    transition: color 300ms;
-                    &:hover {
-                      span {
-                        color: var(--announcement-bg-color);
-                        &::before {
-                          width: 100%;
-                        }
-                      }
-                    }
-
-                    span {
-                      position: relative;
-                      &::before {
-                        content: "";
-                        position: absolute;
-                        bottom: -3px;
-                        left: 0;
-                        width: 0;
-                        height: 1px;
-                        background-color: var(--announcement-bg-color);
-                        transition: width 300ms;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-            .link-wrapper {
-              transition: color 300ms;
-              position: relative;
-              span {
-                padding-bottom: 4px;
-                &::before {
-                  content: "";
-                  position: absolute;
-                  bottom: -3px;
-                  left: 0;
-                  width: 0;
-                  height: 1px;
-                  background-color: var(--announcement-bg-color);
-                  transition: width 300ms;
-                }
-              }
-            }
-          }
-        }
       }
     }
   }
@@ -291,4 +192,3 @@ header {
     }
   }
 }
-

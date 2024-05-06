@@ -7,6 +7,74 @@
     <div class="wrapper-left">
       <div class="top-links">
         <ul>
+          <ng-container *ngFor="let section of navbarSections">
+            <app-nav-section-item [section]="section"></app-nav-section-item>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+    <div class="wrapper-center">
+      <div class="logo-wrapper">
+        <h1 class="site-title">
+          <a href="/" class="logo-image">
+            <div class="responsive-image-wrapper">
+              <img
+                loading="lazy"
+                src="https://portrait.coffee/cdn/shop/files/Primary_Logo_-_Cream_-_Transparent_550x.png?v=1653656599"
+                alt=""
+              />
+            </div>
+          </a>
+          <a href="/" class="logo-overlay-image"></a>
+        </h1>
+      </div>
+    </div>
+    <div class="wrapper-right">
+      <div class="top-links">
+        <ul>
+          <li>
+            <a class="link" (click)="toggleSearchSideMenu()"
+              ><div class="link-wrapper">
+                <fa-icon [icon]="faSearch"></fa-icon>
+                <span>Search</span>
+              </div></a
+            >
+          </li>
+          <li>
+            <a class="link" href=""
+              ><div class="link-wrapper">
+                <fa-icon [icon]="faUser"></fa-icon><span>Account</span>
+              </div></a
+            >
+          </li>
+          <li>
+            <a class="link" href=""
+              ><div class="link-wrapper">
+                <fa-icon [icon]="faShoppingCart"></fa-icon><span>Cart</span>
+              </div></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<app-side-search-menu
+  [showSideSearchMenu]="showSideSearchMenu"
+  (toggleSearchMenuRequest)="toggleSearchSideMenu()"
+></app-side-search-menu>
+
+<!-- JUST IN CASE NAVBAR WITHOUT USING DUMMY COMPONENTS -->
+
+<!-- <header
+  directiveScrollOpacity
+  [ngStyle]="{ 'margin-bottom.px': -navbarHeight }"
+>
+  <nav class="site-header-desktop">
+    <div class="wrapper-left">
+      <div class="top-links">
+        <ul>
           <li>
             <a class="link" href=""
               ><div class="link-wrapper"><span>Shop</span></div>
@@ -249,10 +317,11 @@
       </div>
     </div>
   </nav>
-</header>
+</header> -->
 
-
-<app-side-search-menu
+<!-- <app-side-search-menu
   [showSideSearchMenu]="showSideSearchMenu"
   (toggleSearchMenuRequest)="toggleSearchSideMenu()"
-></app-side-search-menu>
+></app-side-search-menu> -->
+
+<!--  -->

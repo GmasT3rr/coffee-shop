@@ -21,7 +21,7 @@ header {
   transition: opacity 400ms linear 0s;
   background-color: var(--overlay-color);
 }
-.sideMenuOpen{
+.sideMenuOpen {
   app-navbar::ng-deep {
     header {
       pointer-events: none !important;
