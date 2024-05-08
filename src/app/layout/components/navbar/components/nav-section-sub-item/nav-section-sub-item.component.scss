@@ -1,9 +1,10 @@
 li {
   list-style: none;
   padding: 7px 0;
-  // width: fit-content;
-  width: 100%;
-
+  width: fit-content;
+  &.hasDropdown{
+    width: 100%;
+  }
   .dropdown-link {
     color: var(--primary-text-color);
     text-decoration: none;

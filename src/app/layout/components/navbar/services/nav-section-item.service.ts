@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { NavItem } from '../interface/nav-item';
 
 @Injectable({
   providedIn: 'root',
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class NavSectionItemService {
   constructor() {}
 
-  getNavbarSections() {
+  getNavbarSections(): NavItem[] {
     return [
       {
         name: 'Shop',
@@ -21,7 +22,7 @@ export class NavSectionItemService {
             dropdown: ['Gift a Coffee Subscription', 'Gift a Gift Card'],
           },
           { name: 'Goods', dropdown: ['Brewing Equipment', 'Merchandise'] },
-          { name: 'Shop All' },
+          { name: 'Shop All', dropdown: []  },
         ],
       },
       {

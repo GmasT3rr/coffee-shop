@@ -1,4 +1,4 @@
-<li *ngIf="links">
+<li *ngIf="links" [ngClass]="{ hasDropdown: links.dropdown && links.dropdown.length > 0 }">
   <a class="dropdown-link" href="">
     <div class="dropdown-link-wrapper">
       <span>{{ links.name }} </span>
@@ -11,7 +11,9 @@
   <ng-container *ngIf="links?.dropdown && links.dropdown.length > 0">
     <ul class="dropdown sub-dropdown">
       <ng-container *ngFor="let link of links.dropdown">
-        <app-nav-section-sub-dropdown [link]="link"></app-nav-section-sub-dropdown>
+        <app-nav-section-sub-dropdown
+          [link]="link"
+        ></app-nav-section-sub-dropdown>
       </ng-container>
     </ul>
   </ng-container>

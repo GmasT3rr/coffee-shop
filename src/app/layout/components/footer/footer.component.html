@@ -1,1 +1,11 @@
-<p>footer works!</p>
+<footer class="footer-top">
+    <div class="wrapper-padded">
+        <div class="grid">
+            <ng-container *ngFor="let item of footerItemsData">
+                <app-footer-item [data]="item"></app-footer-item>
+            </ng-container>
+        </div>
+    </div>
+</footer>
+
+<!-- TODO add 'Footer' -->
