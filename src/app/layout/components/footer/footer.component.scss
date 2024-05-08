@@ -1,10 +1,51 @@
-@import '../../../../styles.scss';
+@import "../../../../styles.scss";
 
-.footer-top{
-    background-color: var(--primary-bg-color);
-    color: var(--primary-text-color);
-    padding: 30px 0;
-    .wrapper-padded{
-        padding: 0 30px;
+.footer-top {
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  padding: 30px 0;
+  .wrapper-padded {
+    padding: 0 30px;
+    .grid {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      app-footer-item {
+        width: 25%;
+      }
     }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .grid{
+    app-footer-item::ng-deep {
+      width: 100% !important;
+      text-align: center ;
+      .grid-item{
+        a, .button{
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+      .search-drawer,.icons-wrapper {
+        width: 66%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+    }
+  }
+  
+}
+@media screen and (max-width:480px) {
+  .grid{
+    app-footer-item::ng-deep {
+      .search-drawer,.icons-wrapper {
+        width: 100%;
+      }
+
+    }
+  }
+  
 }

@@ -15,6 +15,7 @@ import { SideSearchMenuComponent } from '../side-search-menu/side-search-menu.co
 import { SideMenuService } from '../../services/side-menu.service';
 import { NavSectionItemComponent } from './components/nav-section-item/nav-section-item.component';
 import { NavSectionItemService } from './services/nav-section-item.service';
+import { NavItem } from './interface/nav-item';
 
 @Component({
   selector: 'app-navbar',
@@ -38,7 +39,7 @@ export class NavbarComponent implements OnInit {
   faBars = faBars;
   navbarHeight: number = 0;
 
-  navbarSections: any;
+  navbarSections!: NavItem[];
   showSideSearchMenu: boolean = false;
 
   constructor(

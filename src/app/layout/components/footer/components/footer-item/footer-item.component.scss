@@ -1,0 +1,143 @@
+@import "../../../../../../styles.scss";
+.grid-item {
+    position: relative;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+  transition: all 300ms;
+  .title {
+    font-size: 26px;
+    font-family: "LilitaOne";
+    font-weight: normal;
+    margin: 0 0 15px;
+  }
+  a {
+    font-size: 14px;
+    font-family: "WorkSans";
+    text-decoration: none;
+    color: var(--primary-text-color);
+    width: fit-content;
+    margin: 5px 0;
+    span {
+      position: relative;
+      &:hover {
+        &::before {
+          width: 100%;
+        }
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background-color: var(--primary-text-color);
+        transition: width 300ms;
+      }
+    }
+  }
+}
+.search-drawer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .search-input {
+    position: relative;
+    color: var(--primary-text-color);
+    width: 100%;
+    border: none;
+    background-color: inherit;
+    outline: none;
+    font-size: 14px;
+    z-index: 1;
+    padding: 10px 10px 10px 0;
+    &::placeholder {
+      color: var(--primary-text-color);
+      font-size: 13px;
+      font-family: "WorkSans";
+    }
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: var(--primary-text-color);
+    left: 0;
+    bottom: -4px;
+    z-index: 2;
+    border-radius: 10px;
+    opacity: .5;
+  }
+}
+.button {
+  position: relative;
+  color: var(--primary-text-color);
+  margin: 15px 0;
+  padding: 15px 20px;
+  border: none;
+  background-color: inherit;
+  width: fit-content;
+  font-family: "WorkSans";
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 300ms;
+  &:hover {
+    background-color: var(--primary-btn-text-hover-color);
+  }
+}
+
+.icons-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    fa-icon{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 26px;
+        padding: 12px 24px 12px 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .grid-item{
+        padding: 0;
+        margin: 15px 0;
+    }
+    .icons-wrapper{
+        justify-content: space-around;
+        fa-icon{
+            padding: 12px;
+        }
+    }
+}
+@media screen and (max-width:480px) {
+    .grid-item{
+        padding: 0;
+        margin: 15px 0;
+        .title {
+            margin: 25px 0 15px 0;
+          }
+          &::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: var(--primary-bg-color-lighten50);
+            left: 0;
+            top: 0px;
+            border-radius: 10px;
+            opacity: .25;
+          }
+    }
+    .icons-wrapper{
+        justify-content: space-around;
+        fa-icon{
+            padding: 12px;
+        }
+    }
+}
