@@ -1,11 +1,70 @@
 <footer class="footer-top">
-    <div class="wrapper-padded">
-        <div class="grid">
-            <ng-container *ngFor="let item of footerItemsData">
-                <app-footer-item [data]="item"></app-footer-item>
-            </ng-container>
-        </div>
+  <div class="wrapper-padded">
+    <div class="grid">
+      <ng-container *ngFor="let item of footerItemsData">
+        <app-footer-item [data]="item"></app-footer-item>
+      </ng-container>
     </div>
+  </div>
 </footer>
+<footer class="footer-bottom">
+  <div class="wrapper-padded">
+    <div class="bottom-container">
+      <div class="footer-description">
+        <p>
+          We're located in The West End— a historic Atlanta neighborhood
+          <br />
+          with a rich history of black entrepreneurs and culture.
+        </p>
+        <p>
+          We're honored to have you as a partner in this journey to
+          <br />
+          revitalize black and brown entrepreneurship.
+        </p>
+      </div>
+      <div class="footer-cards">
+        <ul class="inline-cards">
+          <li>
+            <object data="assets/svgs/amex.svg" type=""></object>
+          </li>
+          <li>
+            <object data="assets/svgs/applePay.svg" type=""></object>
+          </li>
+          <li>
+            <object data="assets/svgs/dinnersClub.svg" type=""></object>
+          </li>
+          <li>
+            <object data="assets/svgs/discover.svg" type=""></object>
+          </li>
+          <li>
+            <object data="assets/svgs/googlePay.svg" type=""></object>
+          </li>
+          <li>
+            <object data="assets/svgs/jcb.svg" type=""></object>
+          </li>
+          <li>
+            <object data="assets/svgs/masterCard.svg" type=""></object>
+          </li>
+          <li>
+            <object data="assets/svgs/shopifyPay.svg" type=""></object>
+          </li>
+          <li>
+            <object data="assets/svgs/visa.svg" type=""></object>
+          </li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <ul>
+          <li>© 2024, Lucas Agustin Ramallo</li>
+          <li class="border-left">Powered by Myself</li>
+        </ul>
+      </div>
 
+    </div>
+  </div>
+  <marquee class="marquee" behavior="scroll" direction="left">
+      WHOLE BEAN COFFEE ROASTED IN WEST END ATLANTA · FREE SHIPPING ON ORDERS
+      OVER $50 · USING COFFEE AS A PLATFORM TO DO GOOD, DAILY.
+    </marquee>
+</footer>
 <!-- TODO add 'Footer' -->

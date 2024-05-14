@@ -80,6 +80,7 @@ export class SideSearchMenuComponent {
       switchMap((filterValue: string) => {
         return this.$originalPageInfo.pipe(
           map((objects: MenuItem[]) => {
+            console.log('param to search->',filterValue,'response',objects);
             return objects.map((element: MenuItem) => {
               return {
                 ...element,
