@@ -7,27 +7,67 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     height: 100%;
     width: 100%;
     img {
       transition: all 300ms;
       width: 100%;
-      height: 110vh;
+      height: 100vh;
       object-fit: cover;
       z-index: -1;
       float: auto;
       animation: 1000ms zoomOut ease forwards;
     }
+    .text-wrapper {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: calc(100% - 60px);
+      padding: 50px 30px;
+      span {
+        font-size: 42px;
+        color: var(--primary-text-color);
+        font-weight: normal;
+        font-family: "WorkSans";
+        font-weight: bold;
+        width: fit-content;
+      }
+      button {
+        border: none;
+        border-radius: 10px;
+        margin-top: 20px;
+        padding: 15px 40px;
+        font-family: "WorkSans";
+        font-weight: normal;
+        background-color: var(--primary-bg-color);
+        font-size: 14px;
+        transition: all 200ms;
+        cursor: pointer;
+        &:hover {
+          a {
+            color: var(--primary-btn-text-hover-color);
+          }
+          background-color: var(--primary-text-color);
+        }
+        a {
+          text-decoration: none;
+          color: var(--primary-text-color);
+        }
+      }
+    }
   }
 }
 
 @keyframes zoomOut {
-  from{
+  from {
     scale: 1.2;
   }
-  to{
+  to {
     scale: 1;
- 
   }
 }
 @media screen and (max-width: 768px) {
@@ -36,6 +76,11 @@ section {
       width: 100% !important;
       height: 50% !important;
       min-height: 500px !important;
+    }
+    .text-wrapper {
+      span {
+        font-size: 26px !important;
+      }
     }
   }
 }
