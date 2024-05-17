@@ -16,10 +16,20 @@ section {
       object-fit: cover;
       z-index: -1;
       float: auto;
+      animation: 1000ms zoomOut ease forwards;
     }
   }
 }
 
+@keyframes zoomOut {
+  from{
+    scale: 1.2;
+  }
+  to{
+    scale: 1;
+ 
+  }
+}
 @media screen and (max-width: 768px) {
   .image-wrapper {
     img {
