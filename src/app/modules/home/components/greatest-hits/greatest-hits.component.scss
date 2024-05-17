@@ -10,9 +10,9 @@ section {
     flex-direction: column;
     .title-wrapper {
       text-align: center;
-      animation: fade-in  linear forwards;
+      animation: fade-in linear forwards;
       animation-timeline: view(300px 0px);
-     animation-range: normal ;
+      animation-range: normal;
       h2 {
         font-size: 32px;
         font-family: "LilitaOne";
@@ -46,8 +46,8 @@ section {
           font-family: "WorkSans";
           border-radius: 25px;
           transition: all 300ms;
-          &:hover{
-            background-color: rgb(119, 164, 165,.75);
+          &:hover {
+            background-color: rgb(119, 164, 165, 0.75);
           }
           .image-container {
             img {
@@ -83,7 +83,12 @@ section {
   }
 }
 @media screen and (max-width: 768px) {
+  .title-wrapper {
+    animation: none !important;
+  }
   .grid-item {
+    animation: none !important;
+
     width: 50% !important;
   }
 }
