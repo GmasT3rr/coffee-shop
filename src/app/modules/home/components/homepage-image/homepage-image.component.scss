@@ -3,13 +3,16 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow: hidden;
+  z-index: 0;
+  position: relative;
   .image-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     height: 100%;
     width: 100%;
+    z-index: 1;
     img {
       transition: all 300ms;
       width: 100%;
@@ -20,6 +23,7 @@ section {
       animation: 1000ms zoomOut ease forwards;
     }
     .text-wrapper {
+      z-index: 2;
       position: absolute;
       display: flex;
       flex-direction: column;
@@ -28,6 +32,15 @@ section {
       text-align: center;
       width: calc(100% - 60px);
       padding: 50px 30px;
+      animation: fade-in 1.5s linear forwards;
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
       span {
         font-size: 42px;
         color: var(--primary-text-color);

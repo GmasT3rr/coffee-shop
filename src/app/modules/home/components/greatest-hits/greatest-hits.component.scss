@@ -10,6 +10,9 @@ section {
     flex-direction: column;
     .title-wrapper {
       text-align: center;
+      animation: fade-in  linear forwards;
+      animation-timeline: view(300px 0px);
+     animation-range: normal ;
       h2 {
         font-size: 32px;
         font-family: "LilitaOne";
@@ -24,11 +27,15 @@ section {
       .grid-item {
         width: 25%;
         height: auto;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: entry;
         .item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
           box-sizing: border-box;
           height: 100%;
           width: 100%;
@@ -37,6 +44,11 @@ section {
           color: var(--primary-bg-color);
           font-size: 13px;
           font-family: "WorkSans";
+          border-radius: 25px;
+          transition: all 300ms;
+          &:hover{
+            background-color: rgb(119, 164, 165,.75);
+          }
           .image-container {
             img {
               width: 100%;
@@ -45,18 +57,26 @@ section {
               background-size: cover;
             }
           }
-          .info{
-            .name{
-                margin-top: 0;
-              }
+          .info {
+            .name {
+              margin-top: 0;
+            }
           }
-
         }
       }
     }
   }
 }
-
+@keyframes fade-in {
+  from {
+    opacity: 0.25;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
 @media screen and (max-width: 1440px) {
   .grid-item {
     width: 33.333% !important;
@@ -70,8 +90,8 @@ section {
 @media screen and (max-width: 425px) {
   .grid-item {
     width: 100% !important;
-    .item{
-        padding-bottom: 0 !important;
+    .item {
+      padding-bottom: 0 !important;
     }
   }
 }

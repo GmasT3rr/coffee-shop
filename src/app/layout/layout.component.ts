@@ -30,7 +30,7 @@ import { SideMenuService } from './services/side-menu.service';
 export class LayoutComponent implements OnInit {
   isMobile: boolean = false;
   sideMenuState: boolean = false;
-
+  footerLoading:boolean = true
   constructor(
     private render: Renderer2,
     private _sideMenuService: SideMenuService,
@@ -57,5 +57,10 @@ export class LayoutComponent implements OnInit {
 
   private checkIfMobile(): void {
     this.isMobile = window.innerWidth <= 990;
+  }
+
+  loadFooter(event: any) {
+    // Cuando el componente del router-outlet se activa, se detiene el indicador de carga
+    this.footerLoading = false;
   }
 }
